@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-10-27T09:59:09.969Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="LwqkjGNjd4byb-CiXq0P" version="15.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-27T10:09:30.204Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="jU5Ci15h1dxjWJStHJQ-" version="15.4.1" type="github">
   <diagram id="fKVUNWtOd1Q6Zy9pXweU" name="Page-1">
-    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1673" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -85,7 +85,7 @@
         <mxCell id="e1f4IQgHXaq9rCnp3Oos-13" value="EnterInfo /&amp;nbsp;&lt;br&gt;CalculateLoan" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
           <mxGeometry x="170" y="276" width="68" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="9m2IHYcQ7WaVDAypF8id-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.063;entryY=0.531;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;" edge="1" parent="1" source="9m2IHYcQ7WaVDAypF8id-3" target="e1f4IQgHXaq9rCnp3Oos-1">
+        <mxCell id="9m2IHYcQ7WaVDAypF8id-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.063;entryY=0.531;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="9m2IHYcQ7WaVDAypF8id-3" target="e1f4IQgHXaq9rCnp3Oos-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="9m2IHYcQ7WaVDAypF8id-30" value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9m2IHYcQ7WaVDAypF8id-25">
@@ -102,9 +102,23 @@
         <mxCell id="9m2IHYcQ7WaVDAypF8id-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;" edge="1" parent="1" source="9m2IHYcQ7WaVDAypF8id-17" target="e1f4IQgHXaq9rCnp3Oos-9">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="9m2IHYcQ7WaVDAypF8id-34" value="7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9m2IHYcQ7WaVDAypF8id-27">
+        <mxCell id="9m2IHYcQ7WaVDAypF8id-34" value="8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9m2IHYcQ7WaVDAypF8id-27">
           <mxGeometry x="-0.7055" y="1" relative="1" as="geometry">
             <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9m2IHYcQ7WaVDAypF8id-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.977;entryY=0.655;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="9m2IHYcQ7WaVDAypF8id-17" target="e1f4IQgHXaq9rCnp3Oos-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="762" y="160" />
+              <mxPoint x="530" y="160" />
+              <mxPoint x="530" y="323" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9m2IHYcQ7WaVDAypF8id-38" value="7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9m2IHYcQ7WaVDAypF8id-37">
+          <mxGeometry x="0.3626" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="9m2IHYcQ7WaVDAypF8id-17" value="" style="shape=collate;whiteSpace=wrap;html=1;" vertex="1" parent="1">
