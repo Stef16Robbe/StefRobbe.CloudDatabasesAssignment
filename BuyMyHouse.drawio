@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-27T09:55:50.592Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="jtm2SrDJJFTgcDQdpsZ-" version="15.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-27T09:57:18.859Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="8hyD2P9Nbts3pY7DfOvc" version="15.4.1" type="github">
   <diagram id="fKVUNWtOd1Q6Zy9pXweU" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -97,6 +97,12 @@
         </mxCell>
         <mxCell id="9m2IHYcQ7WaVDAypF8id-21" value="Queue Listener" style="aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=#ffffff;fontSize=12;spacingTop=3;image;image=img/lib/ibm/blockchain/event_listener.svg;" vertex="1" parent="1">
           <mxGeometry x="628" y="410" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9m2IHYcQ7WaVDAypF8id-28" value="De code bestaat uit vier cijfers en twee letters. De eerste 2 cijfers geven de regio aan, de laatste 2 cijfers de wijk. De twee letters geven de buurt en straat aan" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry y="40" width="850" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9m2IHYcQ7WaVDAypF8id-29" value="Part. Key: postcode" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="450" y="139" width="120" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
