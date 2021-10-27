@@ -25,7 +25,7 @@ namespace StefRobbe.CloudDatabases
         public async Task<HttpResponseData> GetHouses(
             [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req, float priceFrom, float priceTo)
         {
-            var house = await _housesService.CreateHouse(new House());
+            // var house = await _housesService.CreateHouse(new House());
             var houses = await _housesService.GetHousesPaginated(priceFrom, priceTo);
             
             var json = JsonConvert.SerializeObject(houses);
