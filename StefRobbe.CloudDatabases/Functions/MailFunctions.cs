@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DAL.Helpers;
 using Domain;
 using Helpers;
 using Microsoft.Azure.Functions.Worker;

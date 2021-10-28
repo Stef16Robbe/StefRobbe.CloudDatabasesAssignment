@@ -36,10 +36,12 @@ namespace DAL
 
         public IEnumerable<House> GetHousesPaginated(int index, int maxItems, float priceFrom, float priceTo)
         {
-            return _hContext.Houses
-                .Where(house => priceFrom < house.Price && house.Price < priceTo)
-                .Skip(index)
-                .Take(maxItems);
+            return priceTo == -1f
+                ? _hContext.Houses.Where(house => priceFrom < house.Price)
+                : _hContext.Houses
+                    .Where(house => priceFrom < house.Price && house.Price < priceTo)
+                    .Skip(index)
+                    .Take(maxItems);
         }
     }
 }

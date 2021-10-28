@@ -22,7 +22,7 @@ namespace StefRobbe.CloudDatabases.Functions
         [Function("GetHouses")]
         public async Task<HttpResponseData> GetHouses(
             [HttpTrigger(AuthorizationLevel.Function, "get")]
-            HttpRequestData req, int index, int maxItems, float priceFrom, float priceTo)
+            HttpRequestData req, int index, int maxItems, float priceFrom = 0f, float priceTo = -1f)
         {
             var houses = _housesService.GetHousesPaginated(index, maxItems, priceFrom, priceTo);
 

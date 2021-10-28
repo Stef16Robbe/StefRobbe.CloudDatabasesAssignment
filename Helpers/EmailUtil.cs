@@ -13,8 +13,8 @@ namespace Helpers
         {
             _logger = logger;
         }
-        
-        
+
+
         public static async void SendMail(EmailAddress to, string subject, string plainTextContent, string htmlContent,
             string b64Content = null, string attachmentName = null)
         {
@@ -29,7 +29,7 @@ namespace Helpers
                 msg.AddAttachment(attachmentName, b64Content, "application/pdf");
 
             await client.SendEmailAsync(msg);
-            
+
             _logger.LogInformation("Email sent successfully to: {ToEmail}", to.Email);
         }
     }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Helpers;
@@ -13,9 +12,9 @@ namespace Services
 {
     public class EmailService : IEmailService
     {
-        private readonly ILogger<EmailService> _logger;
         private readonly IBlobService _blobService;
         private readonly IEmailRepository _emailRepository;
+        private readonly ILogger<EmailService> _logger;
 
         public EmailService(IEmailRepository emailRepository, IBlobService blobService, ILogger<EmailService> logger)
         {
