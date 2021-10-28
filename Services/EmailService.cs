@@ -26,14 +26,6 @@ namespace Services
             return await _emailRepository.GetAllUsers();
         }
 
-        public IEnumerable<IEnumerable<UserInfo>> ChunkUsers(IEnumerable<UserInfo> users, int chunkSize)
-        {
-            return users
-                .Select((x, i) => new {Index = i, Value = x})
-                .GroupBy(x => x.Index / chunkSize)
-                .Select(x => x.Select(v => v.Value));
-        }
-
         public async Task SendMails(IEnumerable<UserInfo> users)
         {
             foreach (var userInfo in users)

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using DAL.Helpers;
 using Domain;
+using Helpers;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Services;
@@ -36,7 +37,7 @@ namespace StefRobbe.CloudDatabases.Functions
             // get all user emails
             var allUsers = await _emailService.GetAllUsers();
             // chunk them so we can start threads with less users in them
-            var chunkedUsers = _emailService.ChunkUsers(allUsers, 3);
+            var chunkedUsers = ChunkUtil.ChunkList(allUsers, 3);
 
             // chunked by N, so N threads are started that each send emails
             foreach (var userList in chunkedUsers)

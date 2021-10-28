@@ -5,11 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DAL\DAL.csproj"/>
+        <ProjectReference Include="..\DAL\DAL.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Sendgrid" Version="9.10.0"/>
+        <PackageReference Include="Sendgrid" Version="9.10.0" />
     </ItemGroup>
 
 </Project>
