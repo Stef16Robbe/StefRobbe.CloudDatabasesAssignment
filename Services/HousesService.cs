@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DAL;
 using Domain;
@@ -13,14 +14,14 @@ namespace Services
             _housesRepository = housesRepository;
         }
 
+        public IEnumerable<House> GetHousesPaginated(int index, int maxItems, float priceFrom, float priceTo)
+        {
+            return _housesRepository.GetHousesPaginated(index, maxItems, priceFrom, priceTo);
+        }
+
         public async Task<House> CreateHouse(House house)
         {
             return await _housesRepository.CreateHouse(house);
-        }
-
-        public async Task<House> GetHousesPaginated(float priceFrom, float priceTo)
-        {
-            return await _housesRepository.GetHousesPaginated(priceFrom, priceTo);
         }
     }
 }

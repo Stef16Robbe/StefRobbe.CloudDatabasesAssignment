@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Domain;
 
@@ -32,10 +34,12 @@ namespace DAL
             return house;
         }
 
-        public async Task<House> GetHousesPaginated(float priceFrom, float priceTo)
+        public IEnumerable<House> GetHousesPaginated(int index, int maxItems, float priceFrom, float priceTo)
         {
-            var house = await _hContext.Houses.FindAsync("fc5253c6-05a7-4d52-9e15-26cc9f64904c", "1521VJ");
-            return house;
+            return _hContext.Houses
+                .Where(house => priceFrom < house.Price && house.Price < priceTo)
+                .Skip(index)
+                .Take(maxItems);
         }
     }
 }

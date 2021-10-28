@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Services;
 
-namespace StefRobbe.CloudDatabases
+namespace StefRobbe.CloudDatabases.Functions
 {
     public class HousesFunctions
     {
@@ -22,10 +22,9 @@ namespace StefRobbe.CloudDatabases
         [Function("GetHouses")]
         public async Task<HttpResponseData> GetHouses(
             [HttpTrigger(AuthorizationLevel.Function, "get")]
-            HttpRequestData req, float priceFrom, float priceTo)
+            HttpRequestData req, int index, int maxItems, float priceFrom, float priceTo)
         {
-            // var house = await _housesService.CreateHouse(new House());
-            var houses = await _housesService.GetHousesPaginated(priceFrom, priceTo);
+            var houses = _housesService.GetHousesPaginated(index, maxItems, priceFrom, priceTo);
 
             var json = JsonConvert.SerializeObject(houses);
             var response = req.CreateResponse(HttpStatusCode.OK);
