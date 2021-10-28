@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain;
 
-namespace DAL
+namespace DAL.Helpers
 {
     public interface ICosmosDbService<T>
     {

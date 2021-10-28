@@ -1,10 +1,7 @@
-using System.Threading.Tasks;
 using DAL;
-using Domain;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Azure.Functions.Worker.Configuration;
+using DAL.Helpers;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Services;
 
 namespace StefRobbe.CloudDatabases
@@ -18,11 +15,15 @@ namespace StefRobbe.CloudDatabases
                 {
                     // services
                     services.AddScoped<IHousesService, HousesService>();
+                    services.AddScoped<IEmailService, EmailService>();
+                    services.AddScoped<IBlobService, BlobService>();
 
                     // repos
                     services.AddScoped<IHousesRepository, HousesRepository>();
-                    
+                    services.AddScoped<IEmailRepository, EmailRepository>();
+
                     services.AddDbContext<HousesContext>();
+                    services.AddDbContext<UserContext>();
 
                     // cosmosdb setup
                     // services.AddSingleton<ICosmosDbService<House>>(CosmosDbSetup<House>

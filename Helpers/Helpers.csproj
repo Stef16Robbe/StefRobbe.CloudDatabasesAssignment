@@ -6,8 +6,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\DAL\DAL.csproj"/>
-        <ProjectReference Include="..\Domain\Domain.csproj"/>
-        <ProjectReference Include="..\Helpers\Helpers.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Domain;
 using Microsoft.Azure.Cosmos;
 
-namespace DAL
+namespace DAL.Helpers
 {
     public class CosmosDbService<T> : ICosmosDbService<T>
     {
@@ -120,7 +120,7 @@ namespace DAL
                 throw;
             }
         }
-        
+
         public async Task<PaginationItem<T>> GetMultiplePaginationAsync(string query, int maxItemCount,
             string continuationToken)
         {
@@ -129,7 +129,7 @@ namespace DAL
                 ContinuationToken = continuationToken,
                 Items = new List<T>()
             };
-        
+
             using (var resultSetIterator = _container.GetItemQueryIterator<T>(
                 query,
                 requestOptions: new QueryRequestOptions
@@ -142,17 +142,17 @@ namespace DAL
                 while (resultSetIterator.HasMoreResults)
                 {
                     var response = await resultSetIterator.ReadNextAsync();
-        
+
                     paginationItem.Items.AddRange(response);
-        
+
                     // Get continuation token once we've gotten maxItemCount results
                     if (response.Count != maxItemCount) continue;
-        
+
                     paginationItem.ContinuationToken = response.ContinuationToken;
                     break;
                 }
             }
-        
+
             if (!paginationItem.Items.Any())
                 throw new Exception("No messages found by this chatroom id");
             return paginationItem;

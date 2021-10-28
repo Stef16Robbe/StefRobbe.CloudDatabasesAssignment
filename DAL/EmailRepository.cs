@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
-using Microsoft.Azure.Cosmos;
 
 namespace DAL
 {
@@ -14,7 +13,7 @@ namespace DAL
         {
             _uContext = uContext;
         }
-        
+
         public async Task<IEnumerable<UserInfo>> GetAllUsers()
         {
             var users = _uContext.Users.ToList();

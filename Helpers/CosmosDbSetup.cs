@@ -1,13 +1,14 @@
 using System;
 using System.Threading.Tasks;
-using DAL;
+using DAL.Helpers;
 using Microsoft.Azure.Cosmos;
 
-namespace StefRobbe.CloudDatabases
+namespace Helpers
 {
     public class CosmosDbSetup<T>
     {
-        public static async Task<CosmosDbService<T>> InitializeCosmosClientInstanceAsync(string containerName, string partitionKey)
+        public static async Task<CosmosDbService<T>> InitializeCosmosClientInstanceAsync(string containerName,
+            string partitionKey)
         {
             var client = new CosmosClient(Environment.GetEnvironmentVariable("Account"),
                 Environment.GetEnvironmentVariable("CosmosDbConnectionString"));
