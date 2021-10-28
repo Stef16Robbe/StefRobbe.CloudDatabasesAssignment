@@ -24,11 +24,6 @@ namespace StefRobbe.CloudDatabases
 
                     services.AddDbContext<HousesContext>();
                     services.AddDbContext<UserContext>();
-
-                    // cosmosdb setup
-                    // services.AddSingleton<ICosmosDbService<House>>(CosmosDbSetup<House>
-                    //     .InitializeCosmosClientInstanceAsync("CourseContainer", "/id")
-                    //     .GetAwaiter().GetResult());
                 })
                 .ConfigureFunctionsWorkerDefaults()
                 .Build();

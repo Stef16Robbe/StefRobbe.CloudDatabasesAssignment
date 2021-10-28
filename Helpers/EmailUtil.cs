@@ -1,11 +1,20 @@
 using System;
+using Microsoft.Extensions.Logging;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
 namespace Helpers
 {
-    public static class EmailUtil
+    public class EmailUtil
     {
+        private static ILogger<EmailUtil> _logger;
+
+        public EmailUtil(ILogger<EmailUtil> logger)
+        {
+            _logger = logger;
+        }
+        
+        
         public static async void SendMail(EmailAddress to, string subject, string plainTextContent, string htmlContent,
             string b64Content = null, string attachmentName = null)
         {
@@ -20,6 +29,8 @@ namespace Helpers
                 msg.AddAttachment(attachmentName, b64Content, "application/pdf");
 
             await client.SendEmailAsync(msg);
+            
+            _logger.LogInformation("Email sent successfully to: {ToEmail}", to.Email);
         }
     }
 }

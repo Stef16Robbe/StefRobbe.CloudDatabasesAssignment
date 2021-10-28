@@ -6,19 +6,22 @@ using DAL;
 using DAL.Helpers;
 using Domain;
 using Helpers;
+using Microsoft.Extensions.Logging;
 using SendGrid.Helpers.Mail;
 
 namespace Services
 {
     public class EmailService : IEmailService
     {
+        private readonly ILogger<EmailService> _logger;
         private readonly IBlobService _blobService;
         private readonly IEmailRepository _emailRepository;
 
-        public EmailService(IEmailRepository emailRepository, IBlobService blobService)
+        public EmailService(IEmailRepository emailRepository, IBlobService blobService, ILogger<EmailService> logger)
         {
             _emailRepository = emailRepository;
             _blobService = blobService;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<UserInfo>> GetAllUsers()
@@ -30,6 +33,7 @@ namespace Services
         {
             foreach (var userInfo in users)
             {
+                _logger.LogInformation("Sending email to: {UserFirstName}", userInfo.FirstName);
                 var pdfBA = await _blobService.GetBlobFromServer(userInfo.BlobId);
                 var pdfB64 = ConvertToBase64(pdfBA);
 

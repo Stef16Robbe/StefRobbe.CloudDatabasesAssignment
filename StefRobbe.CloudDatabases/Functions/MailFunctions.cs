@@ -13,15 +13,13 @@ namespace StefRobbe.CloudDatabases.Functions
 {
     public class MailFunctions
     {
-        private readonly IBlobService _blobService;
         private readonly IEmailService _emailService;
         private readonly ILogger<MailFunctions> _logger;
 
-        public MailFunctions(ILogger<MailFunctions> logger, IEmailService emailService, IBlobService blobService)
+        public MailFunctions(ILogger<MailFunctions> logger, IEmailService emailService)
         {
             _logger = logger;
             _emailService = emailService;
-            _blobService = blobService;
         }
 
         // [Function("SendMail")]
