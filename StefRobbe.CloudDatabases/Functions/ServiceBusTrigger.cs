@@ -19,7 +19,8 @@ namespace StefRobbe.CloudDatabases.Functions
 
         [Function("ServiceBusTrigger")]
         public async Task ProcessMortgageApplications(
-            [ServiceBusTrigger("mortgageapplications", Connection = "ServiceBusConnectionString")] string myQueueItem,
+            [ServiceBusTrigger("mortgageapplications", Connection = "ServiceBusConnectionString")]
+            string myQueueItem,
             FunctionContext context)
         {
             var buyerInfoId = JsonConvert.DeserializeObject<string>(myQueueItem);

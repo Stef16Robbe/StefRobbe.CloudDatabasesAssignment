@@ -4,7 +4,6 @@ using Helpers;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Services;
 
 namespace StefRobbe.CloudDatabases.Functions

@@ -25,7 +25,8 @@ namespace StefRobbe.CloudDatabases.Functions
 
         [Function("CreateUserInfo")]
         public async Task<HttpResponseData> CreateUserInfo(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post")]
+            HttpRequestData req,
             FunctionContext executionContext)
         {
             try

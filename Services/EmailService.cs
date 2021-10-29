@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DAL;
@@ -35,7 +34,8 @@ namespace Services
                 _logger.LogInformation("Sending email to: {UserFirstName}", userInfo.FirstName);
                 var pdf = await _blobService.GetBlobFromServer(userInfo.BlobId);
 
-                EmailUtil.SendMail(new EmailAddress(userInfo.Email), "Your mortgage stuff.", "Your mortgage stuff.\n" + pdf,
+                EmailUtil.SendMail(new EmailAddress(userInfo.Email), "Your mortgage stuff.",
+                    "Your mortgage stuff.\n" + pdf,
                     "Your mortgage stuff.\n" + pdf);
             }
         }

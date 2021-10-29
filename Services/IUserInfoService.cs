@@ -10,5 +10,6 @@ namespace Services
         Task<IEnumerable<UserInfo>> GetAllUserInfo();
         Task<UserInfo> GetUserInfoById(string id);
         Task CreateMortgageApplication(string queueMessage);
+        Task DeleteMortgage(string userInfoId);
     }
 }

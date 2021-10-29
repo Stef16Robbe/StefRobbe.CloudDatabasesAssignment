@@ -1,5 +1,4 @@
 using System;
-using Microsoft.Extensions.Logging;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
