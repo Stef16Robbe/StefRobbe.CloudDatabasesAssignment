@@ -10,5 +10,6 @@ namespace DAL
         Task<IEnumerable<UserInfo>> GetAllUserInfo();
         Task<UserInfo> GetUserInfoById(string id);
         Task AddBlobId(UserInfo userInfo);
+        Task UpdateUserInfo(UserInfo userInfo);
     }
 }

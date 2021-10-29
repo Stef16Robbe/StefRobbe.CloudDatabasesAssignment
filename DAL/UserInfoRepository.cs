@@ -26,6 +26,12 @@ namespace DAL
             return await _userContext.Users.FindAsync(userInfo.id);
         }
 
+        public async Task UpdateUserInfo(UserInfo userInfo)
+        {
+            _userContext.Update(userInfo);
+            await _userContext.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<UserInfo>> GetAllUserInfo()
         {
             return _userContext.Users.ToList();

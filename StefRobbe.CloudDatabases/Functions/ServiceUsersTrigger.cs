@@ -21,7 +21,7 @@ namespace StefRobbe.CloudDatabases.Functions
         [Function("ServiceUsers")]
         public async Task ServiceUsers([TimerTrigger("0 59 23 * * *")] MyInfo myTimer, FunctionContext context)
         {
-            var buyerInfos = await _userInfoService.GetAllUserInfo();
+            var userInfos = await _userInfoService.GetAllUserInfo();
 
             var serviceBusConnectString = Environment.GetEnvironmentVariable("ServiceBusConnectionString");
             var queueName = Environment.GetEnvironmentVariable("QueueName");
@@ -30,10 +30,10 @@ namespace StefRobbe.CloudDatabases.Functions
             {
                 IQueueClient client = new QueueClient(serviceBusConnectString, queueName);
 
-                // Send buyerInfo ids to the service bus so the listener can process the requests one at a time.
-                foreach (var buyerInfo in buyerInfos)
+                // Send userInfo ids to the service bus so the listener can process the requests one at a time.
+                foreach (var userInfo in userInfos)
                 {
-                    var messageBody = JsonConvert.SerializeObject(buyerInfo.id);
+                    var messageBody = JsonConvert.SerializeObject(userInfo.id);
                     var message = new Message(Encoding.UTF8.GetBytes(messageBody));
                     await client.SendAsync(message);
                 }

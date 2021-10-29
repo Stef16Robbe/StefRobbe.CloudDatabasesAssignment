@@ -23,8 +23,8 @@ namespace StefRobbe.CloudDatabases.Functions
             string myQueueItem,
             FunctionContext context)
         {
-            var buyerInfoId = JsonConvert.DeserializeObject<string>(myQueueItem);
-            await _userInfoService.CreateMortgageApplication(buyerInfoId);
+            var userInfoId = JsonConvert.DeserializeObject<string>(myQueueItem);
+            await _userInfoService.CreateMortgageApplication(userInfoId);
 
             _logger.LogInformation("C# ServiceBus queue trigger function processed message: {Message}", myQueueItem);
         }

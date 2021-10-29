@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Helpers;
 using Domain;
 using Helpers;
+using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace Services
 {
@@ -28,9 +31,33 @@ namespace Services
             return await _userInfoRepository.CreateUserInfo(userInfo);
         }
 
-        public async Task DeleteMortgage(string buyerInfoBlobId)
+        public async Task DeleteBlobId()
         {
-            await _blobService.DeleteBlobFromServer(buyerInfoBlobId);
+            var userInfos = await GetAllUserInfo();
+
+            var serviceBusConnectString = Environment.GetEnvironmentVariable("ServiceBusConnectionString");
+            var queueName = Environment.GetEnvironmentVariable("DeleteQueueName");
+
+            if (!string.IsNullOrEmpty(queueName))
+            {
+                IQueueClient client = new QueueClient(serviceBusConnectString, queueName);
+
+                // Send userInfo ids to the service bus so the listener can process the requests one at a time.
+                foreach (var userInfo in userInfos)
+                {
+                    var messageBody = JsonConvert.SerializeObject(userInfo.BlobId);
+                    userInfo.BlobId = "";
+
+                    await _userInfoRepository.UpdateUserInfo(userInfo);
+                    var message = new Message(Encoding.UTF8.GetBytes(messageBody));
+                    await client.SendAsync(message);
+                }
+            }
+        }
+
+        public async Task DeleteMortgage(string userInfoBlobId)
+        {
+            await _blobService.DeleteBlobFromServer(userInfoBlobId);
             _logger.LogInformation("PDF blob has been deleted from blob storage");
         }
 

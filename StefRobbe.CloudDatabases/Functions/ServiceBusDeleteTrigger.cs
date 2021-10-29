@@ -16,7 +16,8 @@ namespace StefRobbe.CloudDatabases.Functions
 
         [Function("ServiceBusDeleteTrigger")]
         public async Task DeleteTrigger(
-            [ServiceBusTrigger("deletequeue", Connection = "ServiceBusConnectionString")] string myQueueItem,
+            [ServiceBusTrigger("deletequeue", Connection = "ServiceBusConnectionString")]
+            string myQueueItem,
             FunctionContext context)
         {
             var userInfoBlobId = JsonConvert.DeserializeObject<string>(myQueueItem);
