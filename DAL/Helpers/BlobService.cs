@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Domain;
 using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Blob;
 using Microsoft.Extensions.Configuration;
@@ -17,16 +16,16 @@ namespace DAL.Helpers
             _configuration = configuration;
         }
 
-        public async Task<string> CreateFile(FileStorage file, string fileName = "")
+        public async Task<string> CreateFile(string file, string fileName = "")
         {
             var containerClient = await GetContainerClient();
             if (string.IsNullOrEmpty(fileName))
-                fileName = Guid.NewGuid() + "." + file.Type;
+                fileName = Guid.NewGuid() + ".pdf";
             try
             {
                 //select the file name you want to give the file
                 var cblob = containerClient.GetBlockBlobReference(fileName);
-                var bytes = Decode(file.Base64String);
+                var bytes = Decode(file);
                 using (var stream = new MemoryStream(bytes))
                 {
                     //saves the file
