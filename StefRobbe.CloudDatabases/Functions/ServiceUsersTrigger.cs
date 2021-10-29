@@ -19,7 +19,7 @@ namespace StefRobbe.CloudDatabases.Functions
         }
 
         [Function("ServiceUsers")]
-        public async Task ServiceUsers([TimerTrigger("0 * * * * *")] MyInfo myTimer, FunctionContext context)
+        public async Task ServiceUsers([TimerTrigger("0 59 23 * * *")] MyInfo myTimer, FunctionContext context)
         {
             var buyerInfos = await _userInfoService.GetAllUserInfo();
 

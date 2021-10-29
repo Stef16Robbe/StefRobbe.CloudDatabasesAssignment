@@ -21,13 +21,8 @@ namespace StefRobbe.CloudDatabases.Functions
             _emailService = emailService;
         }
 
-        // [Function("SendMail")]
-        // public async Task<HttpResponse> SendMail(
-        //     [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
-        // {
-
         [Function("SendMail")]
-        public async Task SendMail([TimerTrigger("0 * * * * *")] MyInfo myTimer, FunctionContext context)
+        public async Task SendMail([TimerTrigger("0 0 10 * * *")] MyInfo myTimer, FunctionContext context)
         {
             _logger.LogInformation("C# Timer trigger function executed at: {DateTime}", DateTime.Now);
 

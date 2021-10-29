@@ -1,5 +1,6 @@
 using System.Net;
 using System.Threading.Tasks;
+using Helpers;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
@@ -26,12 +27,7 @@ namespace StefRobbe.CloudDatabases.Functions
         {
             var houses = _housesService.GetHousesPaginated(index, maxItems, priceFrom, priceTo);
 
-            var json = JsonConvert.SerializeObject(houses);
-            var response = req.CreateResponse(HttpStatusCode.OK);
-            response.Headers.Add("Content-Type", "application/json; charset=utf-8");
-            await response.WriteStringAsync(json);
-
-            return response;
+            return await ResponseHelper.BodyResponse(houses, HttpStatusCode.Created, req);
         }
     }
 }
