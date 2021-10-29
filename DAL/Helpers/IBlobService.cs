@@ -6,6 +6,6 @@ namespace DAL.Helpers
     {
         Task<string> CreateFile(string file, string fileName = "");
         Task<bool> DeleteBlobFromServer(string fileName);
-        Task<byte[]> GetBlobFromServer(string fileName);
+        Task<string> GetBlobFromServer(string fileName);
     }
 }

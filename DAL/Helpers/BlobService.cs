@@ -43,24 +43,11 @@ namespace DAL.Helpers
             return $"{fileName}";
         }
 
-        public async Task<byte[]> GetBlobFromServer(string fileName)
+        public async Task<string> GetBlobFromServer(string fileName)
         {
             var containerClient = await GetContainerClient();
             var blob = containerClient.GetBlockBlobReference($"{fileName}" + ".pdf");
-            byte[] result;
-
-            // open the cloud blob
-            using (var mStream = new MemoryStream())
-            {
-                await blob.DownloadToStreamAsync(mStream);
-                result = mStream.ToArray();
-            }
-
-            var stream = new MemoryStream();
-            stream.Write(result, 0, result.Length);
-
-            //return blob url to give to the client
-            return result;
+            return blob.StorageUri.PrimaryUri.ToString();
         }
 
         public async Task<bool> DeleteBlobFromServer(string fileName)

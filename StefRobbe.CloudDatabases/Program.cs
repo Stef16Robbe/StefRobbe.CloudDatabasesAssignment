@@ -1,5 +1,6 @@
 using DAL;
 using DAL.Helpers;
+using Domain;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Services;
@@ -17,10 +18,12 @@ namespace StefRobbe.CloudDatabases
                     services.AddScoped<IHousesService, HousesService>();
                     services.AddScoped<IEmailService, EmailService>();
                     services.AddScoped<IBlobService, BlobService>();
+                    services.AddScoped<IUserInfoService, UserInfoService>();
 
                     // repos
                     services.AddScoped<IHousesRepository, HousesRepository>();
                     services.AddScoped<IEmailRepository, EmailRepository>();
+                    services.AddScoped<IUserInfoRepository, UserInfoRepository>();
 
                     services.AddDbContext<HousesContext>();
                     services.AddDbContext<UserContext>();

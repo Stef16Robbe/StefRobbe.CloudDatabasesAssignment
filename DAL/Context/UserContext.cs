@@ -21,6 +21,9 @@ namespace DAL
                 .ToContainer("Users");
 
             modelBuilder.Entity<UserInfo>()
+                .HasKey(u => u.id);
+
+            modelBuilder.Entity<UserInfo>()
                 .HasNoDiscriminator();
 
             modelBuilder.Entity<UserInfo>()

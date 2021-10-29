@@ -33,17 +33,11 @@ namespace Services
             foreach (var userInfo in users)
             {
                 _logger.LogInformation("Sending email to: {UserFirstName}", userInfo.FirstName);
-                var pdfBA = await _blobService.GetBlobFromServer(userInfo.BlobId);
-                var pdfB64 = ConvertToBase64(pdfBA);
+                var pdf = await _blobService.GetBlobFromServer(userInfo.BlobId);
 
-                EmailUtil.SendMail(new EmailAddress(userInfo.Email), "Your mortgage stuff.", "Your mortgage stuff.",
-                    "Your mortgage stuff.", pdfB64, "Mortgage");
+                EmailUtil.SendMail(new EmailAddress(userInfo.Email), "Your mortgage stuff.", "Your mortgage stuff.\n" + pdf,
+                    "Your mortgage stuff.\n" + pdf);
             }
-        }
-
-        private static string ConvertToBase64(byte[] bytes)
-        {
-            return Convert.ToBase64String(bytes);
         }
     }
 }
